@@ -8,25 +8,27 @@
 #include "../MyTinySTL/astring.h"
 #include "test.h"
 
-namespace mystl
-{
-namespace test
-{
-namespace string_test
-{
+namespace mystl {
+namespace test {
+namespace string_test {
 
-void string_test()
-{
-  std::cout << "[===============================================================]" << std::endl;
-  std::cout << "[----------------- Run container test : string -----------------]" << std::endl;
-  std::cout << "[-------------------------- API test ---------------------------]" << std::endl;
-  const char* s = "abcdefg";
+void string_test() {
+  std::cout
+      << "[===============================================================]"
+      << std::endl;
+  std::cout
+      << "[----------------- Run container test : string -----------------]"
+      << std::endl;
+  std::cout
+      << "[-------------------------- API test ---------------------------]"
+      << std::endl;
+  const char *s = "abcdefg";
   mystl::string str;
   mystl::string str1(5, 'a');
   mystl::string str2(str1, 3);
   mystl::string str3(str1, 0, 3);
   mystl::string str4("abc");
-  mystl::string str5("abcde",3);
+  mystl::string str5("abcde", 3);
   mystl::string str6(s, s + 5);
   mystl::string str7(str1);
   mystl::string str8(std::move(str1));
@@ -186,19 +188,28 @@ void string_test()
   std::cout << " str3 + str4 : " << str3 + str4 << std::endl;
   PASSED;
 #if PERFORMANCE_TEST_ON
-  std::cout << "[--------------------- Performance Testing ---------------------]" << std::endl;
-  std::cout << "|---------------------|-------------|-------------|-------------|" << std::endl;
+  std::cout
+      << "[--------------------- Performance Testing ---------------------]"
+      << std::endl;
+  std::cout
+      << "|---------------------|-------------|-------------|-------------|"
+      << std::endl;
   std::cout << "|        append       |";
 #if LARGER_TEST_DATA_ON
-  CON_TEST_P1(string, append, "s", SCALE_LL(LEN1), SCALE_LL(LEN2), SCALE_LL(LEN3));
+  CON_TEST_P1(string, append, "s", SCALE_LL(LEN1), SCALE_LL(LEN2),
+              SCALE_LL(LEN3));
 #else
   CON_TEST_P1(string, append, "s", SCALE_L(LEN1), SCALE_L(LEN2), SCALE_L(LEN3));
 #endif
   std::cout << std::endl;
-  std::cout << "|---------------------|-------------|-------------|-------------|" << std::endl;
+  std::cout
+      << "|---------------------|-------------|-------------|-------------|"
+      << std::endl;
   PASSED;
 #endif
-  std::cout << "[----------------- End container test : string -----------------]" << std::endl;
+  std::cout
+      << "[----------------- End container test : string -----------------]"
+      << std::endl;
 }
 
 } // namespace string_test

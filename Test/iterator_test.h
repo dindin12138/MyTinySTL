@@ -1,32 +1,32 @@
 #ifndef MYTINYSTL_ITERATOR_TEST_H_
 #define MYTINYSTL_ITERATOR_TEST_H_
 
-#include "test.h"
 #include "../MyTinySTL/iterator.h"
 #include "../MyTinySTL/stream_iterator.h"
+#include "test.h"
 
-namespace mystl
-{
-namespace test
-{
-namespace iterator_test
-{
+namespace mystl {
+namespace test {
+namespace iterator_test {
 
-void stream_iterator_test()
-{
-  std::cout << "[===============================================================]\n";
-  std::cout << "[------------- Run iterator test : stream_iterator--------------]\n";
-  std::cout << "[-------------------------- API test ---------------------------]\n";
+void stream_iterator_test() {
+  std::cout
+      << "[===============================================================]\n";
+  std::cout
+      << "[------------- Run iterator test : stream_iterator--------------]\n";
+  std::cout
+      << "[-------------------------- API test ---------------------------]\n";
 
-  static_assert(mystl::is_exactly_input_iterator<mystl::istream_iterator<int>>::value, 
-                "istream_iterator must have input_iterator_tag)");
+  static_assert(
+      mystl::is_exactly_input_iterator<mystl::istream_iterator<int>>::value,
+      "istream_iterator must have input_iterator_tag)");
 
-  std::istringstream is("1 2 3");  
-  mystl::istream_iterator<int> first{is}, last;   
+  std::istringstream is("1 2 3");
+  mystl::istream_iterator<int> first{is}, last;
   std::cout << mystl::distance(first, last) << '\n';
 
-  std::istringstream istream("1 2 3 4 5 6");  
-  mystl::istream_iterator<int> beg{istream}, end;  
+  std::istringstream istream("1 2 3 4 5 6");
+  mystl::istream_iterator<int> beg{istream}, end;
   for (; beg != end; ++beg) {
     std::cout << *beg << " ";
   }
@@ -35,8 +35,7 @@ void stream_iterator_test()
   PASSED;
 }
 
-} // namespace stream_iterator_test
+} // namespace iterator_test
 } // namespace test
 } // namespace mystl
 #endif // !MYTINYSTL_STREAM_ITERATOR_TEST_H_
-

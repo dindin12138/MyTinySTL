@@ -3,27 +3,26 @@
 #endif
 
 #if defined(_MSC_VER) && defined(_DEBUG)
-#define _CRTDBG_MAP_ALLOC 
-#include <stdlib.h>
+#define _CRTDBG_MAP_ALLOC
 #include <crtdbg.h>
+#include <stdlib.h>
 #endif // check memory leaks
 
 #include "algorithm_performance_test.h"
 #include "algorithm_test.h"
-#include "vector_test.h"
-#include "list_test.h"
 #include "deque_test.h"
-#include "queue_test.h"
-#include "stack_test.h"
+#include "iterator_test.h"
+#include "list_test.h"
 #include "map_test.h"
+#include "queue_test.h"
 #include "set_test.h"
+#include "stack_test.h"
+#include "string_test.h"
 #include "unordered_map_test.h"
 #include "unordered_set_test.h"
-#include "string_test.h"
-#include "iterator_test.h"
+#include "vector_test.h"
 
-int main()
-{
+int main() {
   using namespace mystl::test;
 
   std::cout.sync_with_stdio(false);
@@ -50,5 +49,4 @@ int main()
 #if defined(_MSC_VER) && defined(_DEBUG)
   _CrtDumpMemoryLeaks();
 #endif // check memory leaks
-
 }
